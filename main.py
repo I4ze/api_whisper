@@ -1,4 +1,8 @@
+import sys
+import os
+
 from fastapi import FastAPI, File, UploadFile
+sys.path.append(os.path.join(os.path.dirname(__file__), 'whisper'))
 import whisper
 import os
 

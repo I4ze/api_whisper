@@ -13,7 +13,7 @@ async def transcrever(file: UploadFile = File(...)):
     with open(audio_path, "wb") as buffer:
         buffer.write(await file.read())
     loop = asyncio.get_event_loop()
-    result = await loop.run_in_executor(None, model.transcribe, audio_path)
+    result = model.transcribe(audio_path, language="pt", fp16=False, verbose=True)
     os.remove(audio_path)
     
     return {"transcricao": result["text"]}

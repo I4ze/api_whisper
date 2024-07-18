@@ -5,7 +5,7 @@ import asyncio
 
 app = FastAPI()
 
-model = whisper.load_model("tiny")
+model = whisper.load_model("base")
 
 @app.post("/transcrever/")
 async def transcrever(file: UploadFile = File(...)):
